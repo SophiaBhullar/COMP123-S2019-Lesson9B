@@ -12,6 +12,10 @@ namespace COMP123_S2019_Lesson9B
 {
     public partial class CalculatorForm : Form
     {
+        //CLASS PROPERTIES
+        public string  OutputString { get; set; }
+        public bool DecimalExists { get; set; }
+
         public CalculatorForm()
         {
             InitializeComponent();
@@ -26,18 +30,62 @@ namespace COMP123_S2019_Lesson9B
         {
             var TheButton = sender as Button;
 
-            int buttonValue;
-            bool resultCondition = int.TryParse(TheButton.Text, out buttonValue);
+            var tag = TheButton.Tag.ToString();
 
+            int buttonValue;
+            bool resultCondition = int.TryParse(tag, out buttonValue);
+    
+            // If the user pressed a number button
             if(resultCondition)
             {
-                ResultLabel.Text += TheButton.Text;
+                OutputString += tag;
+                ResultLabel.Text = OutputString;
             }
-            else
+
+            //if the user pressed a button that is not a number
+            if(!resultCondition)
             {
-                ResultLabel.Text = "Not A Number (NAN)";
+                switch(tag)
+                {
+                    case "clear":
+                        ResultLabel.Text = "0";
+                        OutputString = string.Empty;
+                        DecimalExists = false;
+                        break;
+                    case "back":
+                        var lastChar = OutputString.Substring(OutputString.Length - 1);
+                        if(lastChar == ".")
+                        {
+                            DecimalExists = false;
+                            OutputString=  OutputString.Remove(OutputString.Length - 1);
+                        }
+                        break;
+                    case "done":
+                        break;
+                    case "decimal":
+                        if(!DecimalExists)
+                        {
+                            if(ResultLabel.Text == "0")
+                            {
+                                OutputString += "0";
+                            }
+                            OutputString += ".";
+                            DecimalExists = true;
+                        }
+                        break;
+                }
             }
             
+        }
+
+        private void CalculatorButtonTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CalculatorForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
