@@ -14,13 +14,50 @@ namespace COMP123_S2019_Lesson9B
     {
         //CLASS PROPERTIES
         public string  OutputString { get; set; }
+        public float OutputValue { get; set; }
         public bool DecimalExists { get; set; }
+
+        public Label ActiveLabel { get; set; }
 
         public CalculatorForm()
         {
             InitializeComponent();
         }
 
+        
+        /// <summary>
+        /// This is the Event Handler for the form load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorForm_Load(object sender, EventArgs e)
+        {
+            clearNumericKeyboard();
+            
+            ActiveLabel = null;
+            CalculatorButtonTableLayoutPanel.Visible = false;
+        }
+        
+        
+        /// <summary>
+        /// This is the event handler for the CalculatorForm Click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorForm_Click(object sender, EventArgs e)
+        {
+            clearNumericKeyboard();
+
+            if(ActiveLabel != null)
+            {
+                ActiveLabel.BackColor = Color.White;
+            }
+
+            ActiveLabel = null;
+            CalculatorButtonTableLayoutPanel.Visible = false;
+        }
+
+        
         /// <summary>
         /// This is the event handler for all the calculator buttons- Click Event
         /// </summary>
@@ -32,13 +69,27 @@ namespace COMP123_S2019_Lesson9B
 
             var tag = TheButton.Tag.ToString();
 
-            int buttonValue;
+            int buttonValue=0;
             bool resultCondition = int.TryParse(tag, out buttonValue);
     
             // If the user pressed a number button
             if(resultCondition)
             {
-                OutputString += tag;
+                int maxSize = (DecimalExists) ? 5 : 3;
+
+                if(OutputString == "0")
+                {
+                    OutputString = tag;
+                }
+                else
+                {
+                    if(OutputString.Length < maxSize)
+                    {
+                        OutputString += tag;
+
+                    }
+                }
+
                 ResultLabel.Text = OutputString;
             }
 
@@ -48,44 +99,114 @@ namespace COMP123_S2019_Lesson9B
                 switch(tag)
                 {
                     case "clear":
-                        ResultLabel.Text = "0";
-                        OutputString = string.Empty;
-                        DecimalExists = false;
+                        clearNumericKeyboard();
                         break;
                     case "back":
-                        var lastChar = OutputString.Substring(OutputString.Length - 1);
-                        if(lastChar == ".")
-                        {
-                            DecimalExists = false;
-                            OutputString=  OutputString.Remove(OutputString.Length - 1);
-                        }
+                        removeLastCharacterFromResultLabel();
                         break;
                     case "done":
+                        finalizeOutput();
                         break;
                     case "decimal":
-                        if(!DecimalExists)
-                        {
-                            if(ResultLabel.Text == "0")
-                            {
-                                OutputString += "0";
-                            }
-                            OutputString += ".";
-                            DecimalExists = true;
-                        }
+                        addDecimalToResultLabel();
                         break;
                 }
             }
             
         }
 
-        private void CalculatorButtonTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        /// <summary>
+        /// This method adds the decimal point to Result Label
+        /// </summary>
+        private void addDecimalToResultLabel()
         {
-
+            if (!DecimalExists)
+            {
+                OutputString += ".";
+                DecimalExists = true;
+            }
         }
 
-        private void CalculatorForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// This method finalizes and converts the OutputString to a floating point value
+        /// </summary>
+        private void finalizeOutput()
         {
+            OutputValue = float.Parse(OutputString);
 
+            OutputValue = (float) (Math.Round(OutputValue, 1));
+
+            if (OutputValue < 0.1f)
+            {
+                OutputValue = 0.1f;
+            }
+            ActiveLabel.Text = OutputValue.ToString();
+            clearNumericKeyboard();
+            CalculatorButtonTableLayoutPanel.Visible = false;
+
+            ActiveLabel.BackColor = Color.White;
+            ActiveLabel = null;
         }
+
+        /// <summary>
+        /// This method removes the last character from the Result Label
+        /// </summary>
+        private void removeLastCharacterFromResultLabel()
+        {
+            var lastChar = OutputString.Substring(OutputString.Length - 1);
+            if (lastChar == ".")
+            {
+                DecimalExists = false;
+            }
+            OutputString = OutputString.Remove(OutputString.Length - 1);
+
+            if (OutputString.Length == 0)
+            {
+                OutputString = "0";
+            }
+            ResultLabel.Text = OutputString;
+        }
+
+        /// <summary>
+        /// This method resets the numeric keyboard and related variables
+        /// </summary>
+        private void clearNumericKeyboard()
+        {
+            ResultLabel.Text = "0";
+            OutputString = "0";
+            OutputValue = 0.0f;
+            DecimalExists = false;
+        }
+
+        
+
+
+        /// <summary>
+        /// This is the Event Handler for HeightLabel click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ActiveLabel_Click(object sender, EventArgs e)
+        {
+            if(ActiveLabel != null)
+            {
+                ActiveLabel.BackColor = Color.White;
+                ActiveLabel = null;
+            }
+
+            ActiveLabel = sender as Label;
+
+            ActiveLabel.BackColor = Color.LightBlue;
+
+            CalculatorButtonTableLayoutPanel.Visible = true;
+
+            if(ActiveLabel.Text != "0")
+            {
+                ResultLabel.Text = ActiveLabel.Text;
+                OutputString = ActiveLabel.Text;
+            }
+        }
+
+        
     }
 }

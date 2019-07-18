@@ -44,6 +44,9 @@
             this.NineButton = new System.Windows.Forms.Button();
             this.BackspaceButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
+            this.AgeLabel = new System.Windows.Forms.Label();
             this.CalculatorButtonTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +73,7 @@
             this.CalculatorButtonTableLayoutPanel.Controls.Add(this.BackspaceButton, 3, 1);
             this.CalculatorButtonTableLayoutPanel.Controls.Add(this.ClearButton, 3, 2);
             this.CalculatorButtonTableLayoutPanel.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalculatorButtonTableLayoutPanel.Location = new System.Drawing.Point(3, 149);
+            this.CalculatorButtonTableLayoutPanel.Location = new System.Drawing.Point(3, 219);
             this.CalculatorButtonTableLayoutPanel.Name = "CalculatorButtonTableLayoutPanel";
             this.CalculatorButtonTableLayoutPanel.RowCount = 5;
             this.CalculatorButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -79,9 +82,8 @@
             this.CalculatorButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.CalculatorButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.CalculatorButtonTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CalculatorButtonTableLayoutPanel.Size = new System.Drawing.Size(370, 280);
+            this.CalculatorButtonTableLayoutPanel.Size = new System.Drawing.Size(378, 280);
             this.CalculatorButtonTableLayoutPanel.TabIndex = 0;
-            this.CalculatorButtonTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.CalculatorButtonTableLayoutPanel_Paint);
             // 
             // TwoButton
             // 
@@ -90,9 +92,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TwoButton.BackColor = System.Drawing.Color.SteelBlue;
             this.TwoButton.ForeColor = System.Drawing.Color.White;
-            this.TwoButton.Location = new System.Drawing.Point(95, 171);
+            this.TwoButton.Location = new System.Drawing.Point(97, 171);
             this.TwoButton.Name = "TwoButton";
-            this.TwoButton.Size = new System.Drawing.Size(86, 50);
+            this.TwoButton.Size = new System.Drawing.Size(88, 50);
             this.TwoButton.TabIndex = 7;
             this.TwoButton.Tag = "2";
             this.TwoButton.Text = "2";
@@ -108,7 +110,7 @@
             this.OneButton.ForeColor = System.Drawing.Color.White;
             this.OneButton.Location = new System.Drawing.Point(3, 171);
             this.OneButton.Name = "OneButton";
-            this.OneButton.Size = new System.Drawing.Size(86, 50);
+            this.OneButton.Size = new System.Drawing.Size(88, 50);
             this.OneButton.TabIndex = 6;
             this.OneButton.Tag = "1";
             this.OneButton.Text = "1";
@@ -122,9 +124,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SixButton.BackColor = System.Drawing.Color.SteelBlue;
             this.SixButton.ForeColor = System.Drawing.Color.White;
-            this.SixButton.Location = new System.Drawing.Point(187, 115);
+            this.SixButton.Location = new System.Drawing.Point(191, 115);
             this.SixButton.Name = "SixButton";
-            this.SixButton.Size = new System.Drawing.Size(86, 50);
+            this.SixButton.Size = new System.Drawing.Size(88, 50);
             this.SixButton.TabIndex = 5;
             this.SixButton.Tag = "6";
             this.SixButton.Text = "6";
@@ -138,9 +140,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FiveButton.BackColor = System.Drawing.Color.SteelBlue;
             this.FiveButton.ForeColor = System.Drawing.Color.White;
-            this.FiveButton.Location = new System.Drawing.Point(95, 115);
+            this.FiveButton.Location = new System.Drawing.Point(97, 115);
             this.FiveButton.Name = "FiveButton";
-            this.FiveButton.Size = new System.Drawing.Size(86, 50);
+            this.FiveButton.Size = new System.Drawing.Size(88, 50);
             this.FiveButton.TabIndex = 4;
             this.FiveButton.Tag = "5";
             this.FiveButton.Text = "5";
@@ -156,7 +158,7 @@
             this.FourButton.ForeColor = System.Drawing.Color.White;
             this.FourButton.Location = new System.Drawing.Point(3, 115);
             this.FourButton.Name = "FourButton";
-            this.FourButton.Size = new System.Drawing.Size(86, 50);
+            this.FourButton.Size = new System.Drawing.Size(88, 50);
             this.FourButton.TabIndex = 3;
             this.FourButton.Tag = "4";
             this.FourButton.Text = "4";
@@ -170,9 +172,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EightButton.BackColor = System.Drawing.Color.SteelBlue;
             this.EightButton.ForeColor = System.Drawing.Color.White;
-            this.EightButton.Location = new System.Drawing.Point(95, 59);
+            this.EightButton.Location = new System.Drawing.Point(97, 59);
             this.EightButton.Name = "EightButton";
-            this.EightButton.Size = new System.Drawing.Size(86, 50);
+            this.EightButton.Size = new System.Drawing.Size(88, 50);
             this.EightButton.TabIndex = 1;
             this.EightButton.Tag = "8";
             this.EightButton.Text = "8";
@@ -188,7 +190,7 @@
             this.SevenButton.ForeColor = System.Drawing.Color.White;
             this.SevenButton.Location = new System.Drawing.Point(3, 59);
             this.SevenButton.Name = "SevenButton";
-            this.SevenButton.Size = new System.Drawing.Size(86, 50);
+            this.SevenButton.Size = new System.Drawing.Size(88, 50);
             this.SevenButton.TabIndex = 0;
             this.SevenButton.Tag = "7";
             this.SevenButton.Text = "7";
@@ -205,7 +207,7 @@
             this.ResultLabel.Font = new System.Drawing.Font("Arial", 26F);
             this.ResultLabel.Location = new System.Drawing.Point(3, 0);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(364, 56);
+            this.ResultLabel.Size = new System.Drawing.Size(372, 56);
             this.ResultLabel.TabIndex = 12;
             this.ResultLabel.Tag = "result";
             this.ResultLabel.Text = "0";
@@ -221,8 +223,9 @@
             this.ZeroButton.ForeColor = System.Drawing.Color.White;
             this.ZeroButton.Location = new System.Drawing.Point(3, 227);
             this.ZeroButton.Name = "ZeroButton";
-            this.ZeroButton.Size = new System.Drawing.Size(178, 50);
+            this.ZeroButton.Size = new System.Drawing.Size(182, 50);
             this.ZeroButton.TabIndex = 10;
+            this.ZeroButton.Tag = "0";
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = false;
             this.ZeroButton.Click += new System.EventHandler(this.CalculatorButton_Click);
@@ -234,11 +237,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DoneButton.BackColor = System.Drawing.Color.SeaGreen;
             this.DoneButton.ForeColor = System.Drawing.Color.White;
-            this.DoneButton.Location = new System.Drawing.Point(279, 171);
+            this.DoneButton.Location = new System.Drawing.Point(285, 171);
             this.DoneButton.Name = "DoneButton";
             this.CalculatorButtonTableLayoutPanel.SetRowSpan(this.DoneButton, 2);
-            this.DoneButton.Size = new System.Drawing.Size(88, 106);
+            this.DoneButton.Size = new System.Drawing.Size(90, 106);
             this.DoneButton.TabIndex = 11;
+            this.DoneButton.Tag = "done";
             this.DoneButton.Text = "Done";
             this.DoneButton.UseVisualStyleBackColor = false;
             this.DoneButton.Click += new System.EventHandler(this.CalculatorButton_Click);
@@ -250,9 +254,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ThreeButton.BackColor = System.Drawing.Color.SteelBlue;
             this.ThreeButton.ForeColor = System.Drawing.Color.White;
-            this.ThreeButton.Location = new System.Drawing.Point(187, 171);
+            this.ThreeButton.Location = new System.Drawing.Point(191, 171);
             this.ThreeButton.Name = "ThreeButton";
-            this.ThreeButton.Size = new System.Drawing.Size(86, 50);
+            this.ThreeButton.Size = new System.Drawing.Size(88, 50);
             this.ThreeButton.TabIndex = 8;
             this.ThreeButton.Tag = "3";
             this.ThreeButton.Text = "3";
@@ -266,13 +270,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DecimalButton.BackColor = System.Drawing.Color.SteelBlue;
             this.DecimalButton.ForeColor = System.Drawing.Color.White;
-            this.DecimalButton.Location = new System.Drawing.Point(187, 227);
+            this.DecimalButton.Location = new System.Drawing.Point(191, 227);
             this.DecimalButton.Name = "DecimalButton";
-            this.DecimalButton.Size = new System.Drawing.Size(86, 50);
+            this.DecimalButton.Size = new System.Drawing.Size(88, 50);
             this.DecimalButton.TabIndex = 13;
             this.DecimalButton.Tag = "decimal";
             this.DecimalButton.Text = ".";
             this.DecimalButton.UseVisualStyleBackColor = false;
+            this.DecimalButton.Click += new System.EventHandler(this.CalculatorButton_Click);
             // 
             // NineButton
             // 
@@ -281,9 +286,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NineButton.BackColor = System.Drawing.Color.SteelBlue;
             this.NineButton.ForeColor = System.Drawing.Color.White;
-            this.NineButton.Location = new System.Drawing.Point(187, 59);
+            this.NineButton.Location = new System.Drawing.Point(191, 59);
             this.NineButton.Name = "NineButton";
-            this.NineButton.Size = new System.Drawing.Size(86, 50);
+            this.NineButton.Size = new System.Drawing.Size(88, 50);
             this.NineButton.TabIndex = 2;
             this.NineButton.Tag = "9";
             this.NineButton.Text = "9";
@@ -299,11 +304,11 @@
             this.BackspaceButton.BackgroundImage = global::COMP123_S2019_Lesson9B.Properties.Resources.backbutton;
             this.BackspaceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BackspaceButton.ForeColor = System.Drawing.Color.White;
-            this.BackspaceButton.Location = new System.Drawing.Point(279, 59);
+            this.BackspaceButton.Location = new System.Drawing.Point(285, 59);
             this.BackspaceButton.Name = "BackspaceButton";
-            this.BackspaceButton.Size = new System.Drawing.Size(88, 50);
+            this.BackspaceButton.Size = new System.Drawing.Size(90, 50);
             this.BackspaceButton.TabIndex = 2;
-            this.BackspaceButton.Tag = "9";
+            this.BackspaceButton.Tag = "back";
             this.BackspaceButton.UseVisualStyleBackColor = false;
             this.BackspaceButton.Click += new System.EventHandler(this.CalculatorButton_Click);
             // 
@@ -314,25 +319,78 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearButton.BackColor = System.Drawing.Color.OrangeRed;
             this.ClearButton.ForeColor = System.Drawing.Color.White;
-            this.ClearButton.Location = new System.Drawing.Point(279, 115);
+            this.ClearButton.Location = new System.Drawing.Point(285, 115);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(88, 50);
+            this.ClearButton.Size = new System.Drawing.Size(90, 50);
             this.ClearButton.TabIndex = 2;
-            this.ClearButton.Tag = "9";
+            this.ClearButton.Tag = "clear";
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = false;
             this.ClearButton.Click += new System.EventHandler(this.CalculatorButton_Click);
+            // 
+            // HeightLabel
+            // 
+            this.HeightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeightLabel.BackColor = System.Drawing.Color.White;
+            this.HeightLabel.Font = new System.Drawing.Font("Arial", 26F);
+            this.HeightLabel.Location = new System.Drawing.Point(220, 9);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(152, 47);
+            this.HeightLabel.TabIndex = 12;
+            this.HeightLabel.Tag = "height";
+            this.HeightLabel.Text = "0";
+            this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HeightLabel.Click += new System.EventHandler(this.ActiveLabel_Click);
+            // 
+            // WeightLabel
+            // 
+            this.WeightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WeightLabel.BackColor = System.Drawing.Color.White;
+            this.WeightLabel.Font = new System.Drawing.Font("Arial", 26F);
+            this.WeightLabel.Location = new System.Drawing.Point(220, 68);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(152, 47);
+            this.WeightLabel.TabIndex = 12;
+            this.WeightLabel.Tag = "height";
+            this.WeightLabel.Text = "0";
+            this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.WeightLabel.Click += new System.EventHandler(this.ActiveLabel_Click);
+            // 
+            // AgeLabel
+            // 
+            this.AgeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AgeLabel.BackColor = System.Drawing.Color.White;
+            this.AgeLabel.Font = new System.Drawing.Font("Arial", 26F);
+            this.AgeLabel.Location = new System.Drawing.Point(220, 125);
+            this.AgeLabel.Name = "AgeLabel";
+            this.AgeLabel.Size = new System.Drawing.Size(152, 47);
+            this.AgeLabel.TabIndex = 12;
+            this.AgeLabel.Tag = "height";
+            this.AgeLabel.Text = "0";
+            this.AgeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AgeLabel.Click += new System.EventHandler(this.ActiveLabel_Click);
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 441);
+            this.ClientSize = new System.Drawing.Size(384, 511);
             this.Controls.Add(this.CalculatorButtonTableLayoutPanel);
+            this.Controls.Add(this.AgeLabel);
+            this.Controls.Add(this.WeightLabel);
+            this.Controls.Add(this.HeightLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.CalculatorForm_Load);
-            this.Click += new System.EventHandler(this.CalculatorButton_Click);
+            this.Click += new System.EventHandler(this.CalculatorForm_Click);
             this.CalculatorButtonTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -356,6 +414,9 @@
         private System.Windows.Forms.Button DecimalButton;
         private System.Windows.Forms.Button BackspaceButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.Label WeightLabel;
+        private System.Windows.Forms.Label AgeLabel;
     }
 }
 
